@@ -1,15 +1,47 @@
-# Python-generated files
+# ===== PYTHON BUILD FILES =====
 backend/__pycache__/
-backend/*.py[oc]
+backend/**/__pycache__/
+backend/*.py[cod]
+backend/**/*.py[cod]
+
+# C Extensions
+backend/*.so
+
+# ===== BUILD & DISTRIBUTION =====
 backend/build/
 backend/dist/
 backend/wheels/
-*.egg-info
+backend/*.egg-info/
+backend/**/*.egg-info/
 
-# Virtual environments
-backend/.venv
-
+# ===== VIRTUAL ENVIRONMENTS =====
+backend/.venv/
+backend/venv/
+backend/env/
+.env
+.env.*
 *.env
-*.env.*
 
+# ===== DATABASE FILES =====
 backend/*.db
+backend/**/*.db
+backend/*.sqlite3
+backend/**/*.sqlite3
+
+# ===== LOG FILES =====
+backend/*.log
+backend/**/*.log
+
+# ===== IDE / EDITOR FILES =====
+.vscode/
+.idea/
+
+# ===== OS FILES =====
+.DS_Store
+Thumbs.db
+
+# ===== DOCKER =====
+backend/.dockerignore
+backend/.pytest_cache/
+backend/htmlcov/
+coverage.xml
