@@ -17,6 +17,7 @@ backend/**/*.egg-info/
 # ===== VIRTUAL ENVIRONMENTS =====
 backend/.venv/
 backend/venv/
+backend/.env/
 backend/env/
 .env
 .env.*
