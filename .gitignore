@@ -11,3 +11,5 @@ backend/.venv
 
 *.env
 *.env.*
+
+backend/*.db
