@@ -31,7 +31,13 @@ def create_story(
     session_id: str = Depends(get_session_id),
     db: Session = Depends(get_db),
 ):
-    response.set_cookie(key="session_id", value=session_id, httponly=True)
+    response.set_cookie(
+        key="session_id",
+        value=session_id,
+        httponly=True,
+        secure=True,  # Requires HTTPS
+        samesite="lax",  # or "strict" for tighter security
+    )
 
     job_id = str(uuid.uuid4())
 
@@ -49,7 +55,7 @@ def create_story(
     return job
 
 
-def generate_stroy_task(job_id: str, theme: str, session_id: str):
+def generate_story_task(job_id: str, theme: str, session_id: str):
     db = SessionLocal()
 
     try:
@@ -89,5 +95,5 @@ def get_complete_story(story_id: int, db: Session = Depends(get_db)):
     return complete_story
 
 
-def build_complete_story_tree(db: Session, stroy: Story) -> CompleteStoryResponse:
+def build_complete_story_tree(db: Session, story: Story) -> CompleteStoryResponse:
     pass

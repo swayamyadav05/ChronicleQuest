@@ -11,7 +11,7 @@ class StoryOptionsSchema(BaseModel):
 class StoryNodeBase(BaseModel):
     content: str
     is_ending: bool = False
-    is_winning_ending: bool = False
+    is_winning: bool = False
 
 
 class CompleteStoryNodeResponse(StoryNodeBase):

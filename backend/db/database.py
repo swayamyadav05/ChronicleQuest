@@ -1,10 +1,13 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 from core.config import settings
 
-engine = create_engine(settings.DATABASE_URL)
+try:
+    engine = create_engine(settings.DATABASE_URL)
+except Exception as e:
+    raise RuntimeError(f"Failed to create database engine: {e}")
+
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
